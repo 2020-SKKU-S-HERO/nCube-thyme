@@ -175,18 +175,28 @@ function tas_watchdog() {
     else if(tas_state == 'init_serial') {
     	SerialPort = serialport;
     	
-        serialport.list(function (err, ports) {
+        /*
+	serialport.list(function (err, ports) {
             ports.forEach(function (port) {
                 console.log(port.comName);
             });
         });
+	*/
+	SerialPort.list().then( ports=>{
+		ports.forEach(function(port) {
+			console.log(port.comName);
+		});
+	});
 
         myPort = new SerialPort(usecomport, {
             baudRate : parseInt(usebaudrate, 10),
             buffersize : 1
             //parser : serialport.parsers.readline("\r\n")
         });
-
+	
+	console.log(myPort.options.baudRate);
+	console.log(myPort.baudRate);
+	
         myPort.on('open', showPortOpen);
         myPort.on('data', saveLastestData);
         myPort.on('close', showPortClose);
