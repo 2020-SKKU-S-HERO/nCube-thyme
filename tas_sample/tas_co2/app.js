@@ -173,7 +173,7 @@ function tas_watchdog() {
         }
     }
     else if(tas_state == 'init_serial') {
-    	SerialPort = serialport.SerialPort;
+    	SerialPort = serialport;
     	
         serialport.list(function (err, ports) {
             ports.forEach(function (port) {
