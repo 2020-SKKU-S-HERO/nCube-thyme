@@ -174,7 +174,7 @@ function tas_watchdog() {
     }
     else if(tas_state == 'init_serial') {
     	SerialPort = serialport;
-    	
+
         /*
 	serialport.list(function (err, ports) {
             ports.forEach(function (port) {
@@ -193,10 +193,10 @@ function tas_watchdog() {
             buffersize : 1
             //parser : serialport.parsers.readline("\r\n")
         });
-	
+
 	//console.log(myPort.options.baudRate);
 	//console.log(myPort.baudRate);
-	
+
         myPort.on('open', showPortOpen);
         myPort.on('data', saveLastestData);
         myPort.on('close', showPortClose);
